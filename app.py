@@ -59,7 +59,7 @@ def twitter_auth():
         redirect_url = auth.get_authorization_url()
         session['request_token'] = auth.request_token
         return redirect(redirect_url)
-    except tweepy.TweepError as e:
+    except tweepy.TweepyException as e:
         return f"Error during authentication: {e}"
 
 @app.route('/auth/twitter/callback')
@@ -82,7 +82,7 @@ def twitter_callback():
             return redirect(url_for('home'))
         else:
             return 'Failed to fetch user details from Twitter. Try again.'
-    except tweepy.TweepError as e:
+    except tweepy.TweepyException as e:
         return f"Error during callback: {e}"
 
 @app.route('/home')
