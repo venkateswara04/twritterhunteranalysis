@@ -3,7 +3,7 @@ from textblob import TextBlob
 import tweepy
 import sqlite3
 from datetime import datetime
-
+from tweepy.errors import TweepyException, Forbidden
 # Flask app setup
 app = Flask(__name__)
 app.secret_key = 'bbaabbaabbaabbaa5566556677887788'
