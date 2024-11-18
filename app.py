@@ -46,12 +46,12 @@ init_db()
 # Routes
 @app.route('/')
 def landing():
-    return redirect(url_for('index1'))
+    return redirect(url_for('index'))
 
-@app.route('/index1')
-def index1():
+@app.route('/index')
+def index():
     username = session.get('username', 'Guest')
-    return render_template('index1.html', username=username)
+    return render_template('index.html', username=username)
 
 @app.route('/auth/twitter')
 def twitter_auth():
@@ -88,8 +88,8 @@ def twitter_callback():
 @app.route('/home')
 def home():
     if 'username' in session:
-        return render_template('index.html', username=session['username'])
-    return redirect(url_for('index1'))
+        return render_template('index11.html', username=session['username'])
+    return redirect(url_for('index'))
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
@@ -107,8 +107,8 @@ def analyze():
             ''', (tweet, sentiment, username, date_time))
             conn.commit()
 
-        return render_template('index.html', username=username, tweet=tweet, sentiment=sentiment)
-    return redirect(url_for('index1'))
+        return render_template('index11.html', username=username, tweet=tweet, sentiment=sentiment)
+    return redirect(url_for('index'))
 
 @app.route('/history', methods=['GET', 'POST'])
 def history():

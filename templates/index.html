@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Twitter Hunter - Home</title>
+    <title>Twitter Hunter</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
+            background-color: #f1f1f1;
+            color: #333;
             margin: 0;
             padding: 0;
         }
@@ -29,19 +30,8 @@
             border-radius: 8px;
         }
 
-        h2 {
-            font-size: 2em;
-        }
-
-        textarea {
-            width: 100%;
-            height: 150px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            box-sizing: border-box;
+        h1 {
+            font-size: 2.5em;
         }
 
         button {
@@ -58,50 +48,20 @@
             background-color: #2980b9;
         }
 
-        .result {
-            margin-top: 30px;
-            padding: 20px;
-            background-color: #ecf0f1;
-            border-radius: 8px;
-        }
-
-        .result p {
-            font-size: 1.1em;
-            margin: 10px 0;
-        }
-
         a {
             text-decoration: none;
-        }
-
-        .history-button {
-            margin-top: 20px;
-            background-color: #2ecc71;
-            font-size: 1.1em;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome, {{ username }}!</h1>
+        <h1>Welcome to Twitter Hunter</h1>
     </header>
     <div class="container">
-        <h2>Analyze your tweet's sentiment</h2>
-        <form action="{{ url_for('analyze') }}" method="POST">
-            <textarea name="tweet" placeholder="Enter a tweet to analyze..." required></textarea>
-            <button type="submit">Analyze Tweet</button>
-        </form>
-
-        {% if tweet %}
-        <div class="result">
-            <h3>Analysis Result:</h3>
-            <p><strong>Tweet:</strong> {{ tweet }}</p>
-            <p><strong>Sentiment:</strong> {{ sentiment }}</p>
-        </div>
-        {% endif %}
-
-        <a href="{{ url_for('history') }}">
-            <button class="history-button">View Analysis History</button>
+        <h2>Sign in with Twitter to start analyzing tweets!</h2>
+        <p>Click below to sign in with your Twitter account:</p>
+        <a href="{{ url_for('twitter_auth') }}">
+            <button>Sign in with Twitter</button>
         </a>
     </div>
 </body>
