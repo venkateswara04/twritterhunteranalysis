@@ -88,8 +88,8 @@ def twitter_callback():
 @app.route('/home')
 def home():
     if 'username' in session:
-        return render_template('index11.html', username=session['username'])
-    return redirect(url_for('index'))
+        return render_template('index.html', username=session['username'])
+    return redirect(url_for('index11'))
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
