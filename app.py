@@ -11,7 +11,7 @@ app.secret_key = 'bbaabbaabbaabbaa5566556677887788'
 # Twitter API credentials
 API_KEY = 'ym5pAXCbSPf3do9jVnucjoRG6'
 API_SECRET_KEY = 'uuRxGhlL7KRnmhDMbHD7oIEpGe9yEgxXW9YvCN84EhcjapMv7d'
-CALLBACK_URL = 'https://twritterhunteranalysis.vercel.app//auth/twitter/callback'
+CALLBACK_URL = 'https://twritterhunteranalysis.vercel.app/auth/twitter/callback'
 
 # Tweepy OAuth setup
 auth = tweepy.OAuthHandler(API_KEY, API_SECRET_KEY, CALLBACK_URL)
